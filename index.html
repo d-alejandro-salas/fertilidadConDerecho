@@ -1,105 +1,319 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="es-AR">
 <head>
-  <title>Jubilamos</title>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Enlace a Font Awesome (versión kit) -->
-  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="Styles/style.css">
-  <!-- Enlace a Font Awesome (versión regular) -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="JS/headerFooter.js"></script>
-  <script>
-    function toggleMap() {
-    var mapa = document.getElementById('mapa');
-    mapa.classList.toggle('activo');
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fertilidad con Derecho | Amparos por cobertura de tratamientos</title>
+  <meta name="description" content="Asesoramiento jurídico especializado en negativas y limitaciones de cobertura de tratamientos de fertilidad. Atención virtual y presencial en CABA con cita previa.">
+  <meta name="theme-color" content="#075763">
+  <link rel="canonical" href="https://fertilidad-con-derecho.maximm10.chatgpt.site/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23075763'/%3E%3Cpath d='M35 9C20 13 13 25 17 38c3 10 12 15 22 17-8-6-12-13-10-21 1-7 7-13 16-17Z' fill='%23fbf7ef'/%3E%3Ccircle cx='42' cy='25' r='7' fill='%23e9826b'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --petrol: #075763;
+      --petrol-deep: #063f49;
+      --coral: #e9826b;
+      --cream: #fbf7ef;
+      --peach: #f0d8c9;
+      --ink: #223c40;
+      --muted: #597074;
+      --white: #ffffff;
+      --line: rgba(7, 87, 99, .15);
+      --shadow: 0 24px 60px rgba(6, 63, 73, .12);
+      --radius: 24px;
     }
-  </script>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 247, 239, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--petrol); }
+    .mark { width: 46px; height: 52px; flex: 0 0 auto; }
+    .brand-text { line-height: 1; font-weight: 800; font-size: 1.24rem; letter-spacing: -.03em; }
+    .brand-text span { display: block; color: var(--coral); font-size: .78em; margin-top: 5px; }
+    nav { display: flex; align-items: center; gap: 26px; font-size: .93rem; }
+    nav a { text-decoration: none; font-weight: 650; }
+    nav a:hover { color: var(--petrol); }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 22px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--coral);
+      color: #2e2725;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(233, 130, 107, .24);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(233, 130, 107, .3); }
+    .button.secondary { background: var(--petrol); color: var(--white); box-shadow: 0 10px 24px rgba(7, 87, 99, .2); }
+    .hero { position: relative; overflow: hidden; padding: 94px 0 78px; }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      right: -220px;
+      top: -210px;
+      border-radius: 50%;
+      background: var(--petrol);
+      opacity: .98;
+      z-index: -1;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 70px; }
+    .eyebrow { color: var(--petrol); font-size: .82rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+    h1, h2, h3 { margin: 0; color: var(--petrol-deep); line-height: 1.12; letter-spacing: -.035em; }
+    h1 { max-width: 780px; margin-top: 18px; font-size: clamp(2.55rem, 6vw, 4.9rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+    h3 { font-size: 1.28rem; }
+    .lead { max-width: 720px; margin: 26px 0 30px; color: #3f585c; font-size: 1.22rem; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .micro { color: var(--muted); font-size: .9rem; }
+    .case-card {
+      position: relative;
+      padding: 36px;
+      border-radius: 32px;
+      color: var(--white);
+      background: var(--petrol);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .case-card::before { content: ""; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: var(--coral); right: -150px; top: -120px; opacity: .92; }
+    .case-card .number { position: relative; display: inline-flex; align-items: baseline; gap: 9px; font-weight: 900; }
+    .case-card .number strong { font-size: 4.8rem; line-height: 1; color: var(--cream); }
+    .case-card .number span { color: var(--coral); font-size: 1.4rem; }
+    .case-card h2 { position: relative; margin: 16px 0; color: var(--white); font-size: 2rem; }
+    .case-card p { position: relative; margin: 0; color: rgba(255,255,255,.82); }
+    .trust { background: var(--white); border-block: 1px solid var(--line); }
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .trust-item { padding: 24px; text-align: center; font-weight: 760; color: var(--petrol); border-right: 1px solid var(--line); }
+    .trust-item:last-child { border-right: 0; }
+    section { padding: 88px 0; }
+    .section-intro { max-width: 760px; margin: 18px 0 42px; color: var(--muted); font-size: 1.08rem; }
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .card { padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.62); }
+    .card .icon { display: grid; place-items: center; width: 46px; height: 46px; margin-bottom: 22px; border-radius: 14px; color: var(--cream); background: var(--petrol); font-weight: 900; }
+    .card p { margin: 12px 0 0; color: var(--muted); }
+    .criterion { color: var(--white); background: var(--petrol-deep); }
+    .criterion-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
+    .criterion h2, .criterion h3 { color: var(--white); }
+    .big-three { font-size: clamp(6rem, 15vw, 11rem); color: var(--coral); line-height: .82; font-weight: 900; letter-spacing: -.08em; }
+    .criterion p { color: rgba(255,255,255,.78); }
+    .note { margin-top: 24px; padding: 20px 22px; border-left: 4px solid var(--coral); border-radius: 0 15px 15px 0; background: rgba(255,255,255,.06); }
+    .steps { counter-reset: steps; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .step { counter-increment: steps; padding: 28px 26px; border-top: 3px solid var(--coral); background: var(--white); border-radius: 0 0 var(--radius) var(--radius); box-shadow: 0 12px 35px rgba(7,87,99,.07); }
+    .step::before { content: "0" counter(steps); display: block; margin-bottom: 38px; color: var(--coral); font-weight: 900; font-size: 1rem; letter-spacing: .1em; }
+    .step p { margin-bottom: 0; color: var(--muted); }
+    .docs { background: var(--peach); }
+    .docs-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: center; }
+    .checklist { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+    .checklist li { position: relative; padding: 18px 18px 18px 56px; border-radius: 15px; background: rgba(255,255,255,.74); }
+    .checklist li::before { content: "✓"; position: absolute; left: 19px; top: 16px; display: grid; place-items: center; width: 25px; height: 25px; border-radius: 50%; background: var(--petrol); color: var(--white); font-weight: 900; }
+    .faq-list { display: grid; gap: 12px; max-width: 880px; }
+    details { border: 1px solid var(--line); border-radius: 17px; background: rgba(255,255,255,.65); padding: 0 22px; }
+    summary { cursor: pointer; padding: 21px 40px 21px 0; color: var(--petrol-deep); font-weight: 780; list-style: none; position: relative; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 0; top: 16px; color: var(--coral); font-size: 1.65rem; font-weight: 500; }
+    details[open] summary::after { content: "−"; }
+    details p { margin: 0 0 22px; color: var(--muted); }
+    .contact { padding-top: 24px; }
+    .contact-box { display: grid; grid-template-columns: 1.2fr .8fr; gap: 42px; padding: 48px; border-radius: 32px; color: var(--white); background: var(--petrol); box-shadow: var(--shadow); }
+    .contact-box h2 { color: var(--white); }
+    .contact-box p { color: rgba(255,255,255,.78); }
+    .contact-meta { align-self: center; display: grid; gap: 12px; font-size: .96rem; }
+    .contact-meta div { padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.18); }
+    footer { padding: 44px 0 100px; color: var(--muted); font-size: .88rem; }
+    .footer-grid { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+    .socials { display: flex; gap: 18px; }
+    .socials a { color: var(--petrol); font-weight: 700; }
+    .whatsapp-float { display: none; }
+    @media (max-width: 860px) {
+      nav a:not(.button) { display: none; }
+      .hero { padding-top: 62px; }
+      .hero-grid, .criterion-grid, .docs-grid, .contact-box { grid-template-columns: 1fr; gap: 42px; }
+      .case-card { max-width: 620px; }
+      .cards, .steps { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; padding: 8px 0; }
+      .trust-item { border-right: 0; border-bottom: 1px solid var(--line); padding: 16px; }
+      .trust-item:last-child { border-bottom: 0; }
+      section { padding: 70px 0; }
+    }
+    @media (max-width: 560px) {
+      body { font-size: 16px; }
+      .container { width: min(100% - 28px, 1120px); }
+      .nav { min-height: 68px; }
+      .brand-text { font-size: 1.05rem; }
+      .mark { width: 39px; height: 45px; }
+      nav .button { display: none; }
+      h1 { font-size: 2.65rem; }
+      .lead { font-size: 1.08rem; }
+      .hero-actions .button { width: 100%; }
+      .case-card, .contact-box { padding: 30px 24px; border-radius: 24px; }
+      .contact-meta { padding-bottom: 12px; }
+      footer { padding-bottom: 120px; }
+      .whatsapp-float { display: flex; position: fixed; z-index: 30; left: 14px; right: 14px; bottom: 14px; min-height: 58px; }
+    }
+  </style>
 </head>
 <body>
-    <section id="introduction">
-      <h1>
-        Estudio Jurídico especializado en Derecho Previsional y Sucesiones
-      </h1>
-      <p class="bigFontSize">En <span class="enterprise">Jubilamos</span>nos especializamos en ofrecerte asesoramiento y la mejor orientación en tus trámites frente al <u>ANSES</u>, protegiendo y resguardando tus derechos tanto en sede administrativa como judicial, proporcionándote así la máxima seguridad jurídica y defensa a lo largo de este camino. Nuestro compromiso es garantizar la más alta calidad en la asistencia.</p>
-      <p>Con calidez, celeridad y una amplia experiencia en el campo, trabajamos incansablemente para asegurar que cada cliente reciba el apoyo necesario de manera oportuna y eficiente. Creemos firmemente en la importancia de proteger tus derechos en cada paso del proceso.</p>
-      <p><u>ENTREVISTAS VIRTUALES</u>: En nuestro estudio jurídico, realizamos entrevistas de forma remota, ofreciéndote la comodidad de evitar desplazamientos a nuestras oficinas. Podés comunicarte con nosotros a través de <a href="https://api.whatsapp.com/send/?phone=5491132140614">WhatsApp</a>, teléfono o <a href="mailto:jubilamosinf@hotmail.com">correo electrónico</a>. Tu tranquilidad es nuestra prioridad, y nuestro compromiso es brindarte el respaldo que necesites.</p>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Fertilidad con Derecho, inicio">
+        <svg class="mark" viewBox="0 0 64 72" aria-hidden="true"><path d="M37 3C17 8 7 25 13 44c4 14 17 21 31 24-11-8-16-18-14-29 2-10 9-19 22-24Z" fill="#075763"/><circle cx="47" cy="27" r="9" fill="#e9826b"/><path d="M45 36c-12 5-15 18-7 30 9-5 16-14 16-23 0-5-3-8-9-7Z" fill="#e9826b"/></svg>
+        <span class="brand-text">Fertilidad<span>con Derecho</span></span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="#ayuda">Cómo ayudamos</a>
+        <a href="#documentacion">Documentación</a>
+        <a href="#preguntas">Preguntas</a>
+        <a class="button" href="https://wa.me/5491132140614?text=Hola%2C%20quiero%20consultar%20por%20la%20cobertura%20de%20un%20tratamiento%20de%20fertilidad" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Amparos por cobertura de fertilidad</div>
+          <h1>Cuando te dicen que ya alcanzaste el límite, el análisis no termina ahí.</h1>
+          <p class="lead">Asesoramiento jurídico especializado en negativas y limitaciones de cobertura de tratamientos de reproducción médicamente asistida.</p>
+          <div class="hero-actions">
+            <a class="button" href="https://wa.me/5491132140614?text=Hola%2C%20quiero%20consultar%20por%20la%20cobertura%20de%20un%20tratamiento%20de%20fertilidad" target="_blank" rel="noopener">Consultar mi caso</a>
+            <span class="micro">Evaluación inicial sin costo</span>
+          </div>
+        </div>
+        <aside class="case-card" aria-label="Información sobre el límite de tratamientos">
+          <div class="number"><strong>3</strong><span>por año</span></div>
+          <h2>No tres tratamientos de por vida</h2>
+          <p>El alcance concreto depende de las fechas, la indicación médica, los tratamientos anteriores y la respuesta de la cobertura.</p>
+        </aside>
+      </div>
     </section>
-  <main id="indexMain">
-    <section id="mainGrid">
-      <div>
-        <a class="mainGrid__link" href="jubilaciones.html">
-          <h2>Jubilaciones</h2>
-          <div class="linkDescription__container">
-            <img src="./Images/jubilaciones.webp"/>
-            <p>Tramitamos la mejor jubilación posible para nuestros clientes, brindándoles un servicio integral, analizando requisitos de edad y aportes realizados; también brindamos la posibilidad de que accedan a la jubilación utilizando las moratorias vigentes en caso de no contar con los aportes requeridos por ley.</p>
-          </div>
-        </a>
+
+    <div class="trust">
+      <div class="container trust-grid">
+        <div class="trust-item">Atención virtual</div>
+        <div class="trust-item">Presencial en CABA con cita previa</div>
+        <div class="trust-item">Análisis individual del caso</div>
       </div>
-      <div>
-        <a class="mainGrid__link" href="pensionesPorFallecimiento.html">
-          <h2>Pensiones por fallecimiento</h2>
-          <div class="linkDescription__container">
-            <img src="./Images/pension.webp" />
-            <p>Ante el fallecimiento de un trabajador en actividad o jubilado, tendrán derecho a solicitar el beneficio de Pensión los cónyuges/convivientes o sus hijos menores e hijos mayores discapacitado.</p>
-          </div>
-        </a>
+    </div>
+
+    <section id="ayuda">
+      <div class="container">
+        <div class="eyebrow">Un servicio jurídico específico</div>
+        <h2>Nos concentramos exclusivamente en problemas de cobertura de fertilidad</h2>
+        <p class="section-intro">Revisamos la indicación médica, el historial de tratamientos y la respuesta de la obra social o prepaga para determinar qué reclamo corresponde.</p>
+        <div class="cards">
+          <article class="card"><div class="icon">01</div><h3>Negativa por tratamientos anteriores</h3><p>Cuando la cobertura rechaza una nueva solicitud porque considera agotado el límite.</p></article>
+          <article class="card"><div class="icon">02</div><h3>FIV e ICSI</h3><p>Reclamos vinculados con la cobertura de técnicas de reproducción asistida de alta complejidad indicadas por el equipo médico.</p></article>
+          <article class="card"><div class="icon">03</div><h3>Medicación y criopreservación</h3><p>Análisis de la cobertura integral del tratamiento, su medicación y las prestaciones complementarias médicamente indicadas.</p></article>
+          <article class="card"><div class="icon">04</div><h3>Demoras o autorizaciones parciales</h3><p>Evaluamos respuestas incompletas, limitaciones y demoras que puedan afectar la continuidad del tratamiento.</p></article>
+        </div>
       </div>
-      <div>
-        <a class="mainGrid__link" href="reajusteHaberes.html">
-          <h2>Reajuste de haberes ejecución de sentencias</h2>
-          <div class="linkDescription__container">
-            <img src="./Images/reajustes.webp" />
-            <p>En nuestro país, 1 de cada 5 personas cobra menos de lo que le corresponde. Recordá siempre que es tu dinero el cual aportaste a lo largo de la vida y es tu derecho reclamarlo.</p>
-            <p>Revisamos el cálculo de tu jubilación para verificar si estás cobrando correctamente e iniciamos un reclamo judicial para lograr el reajuste de tu haber mensual.</p>
-          </div>
-        </a>
+    </section>
+
+    <section class="criterion">
+      <div class="container criterion-grid">
+        <div><div class="big-three">3</div><div class="eyebrow" style="color:#e9826b;margin-top:18px">Tratamientos de alta complejidad</div></div>
+        <div>
+          <h2>El límite debe analizarse con un criterio anual</h2>
+          <p>La interpretación jurisprudencial aplicable a las técnicas de alta complejidad no considera un máximo de tres tratamientos para toda la vida, sino hasta tres tratamientos por año.</p>
+          <p>Sin embargo, no todas las situaciones son iguales. Deben revisarse las fechas, la forma en que se computó cada procedimiento, la indicación actual y el fundamento utilizado para negar la cobertura.</p>
+          <div class="note">La información de esta página es general. La viabilidad del reclamo se determina únicamente después de analizar la documentación de cada caso.</div>
+        </div>
       </div>
-      <div>
-        <a class="mainGrid__link" href="retiros.html">
-          <h2>Retiros por invalidez</h2>
-          <div class="linkDescription__container">
-            <img src="./Images/invalidez.webp" />
-            <p>Hombres y mujeres que no alcanzaron la edad para acceder a la jubilación ordinaria, que tengan una incapacidad laboral del 66% determinada por junta médica y que cumplan con la condición de «aportante regular» o «aportante irregular con derecho», podrán acceder a este beneficio.</p>
-          </div>
-        </a>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="eyebrow">Cómo trabajamos</div>
+        <h2>Un proceso claro desde la primera consulta</h2>
+        <p class="section-intro">La prioridad es saber si existe una negativa o limitación concreta y qué documentación permite sostener el reclamo.</p>
+        <div class="steps">
+          <article class="step"><h3>Revisión inicial</h3><p>Conocemos el tratamiento indicado, los antecedentes y el motivo informado por la cobertura.</p></article>
+          <article class="step"><h3>Control documental</h3><p>Revisamos órdenes médicas, historia clínica, solicitudes, autorizaciones y negativas.</p></article>
+          <article class="step"><h3>Estrategia legal</h3><p>Si el caso resulta viable, explicamos las alternativas y los pasos para realizar el reclamo correspondiente.</p></article>
+        </div>
       </div>
-      <div>
-        <a class="mainGrid__link" href="rentaVitalicia.html">
-          <h2>Renta vitalicia</h2>
-          <div class="linkDescription__container">
-            <img src="./Images/rentaVitalicia.webp" />
-            <p>Si tenes una Pensión / Renta Vitalicia de  una Compañía de Seguro de Retiro –ex AFJP- y cobras menos que la jubilación mínima, iniciamos el reclamo para lograr los aumentos y reajustar tu haber mensual con los fallos de la Corte Suprema de Justicia de la Nación.</p>
-          </div>
-        </a>
+    </section>
+
+    <section class="docs" id="documentacion">
+      <div class="container docs-grid">
+        <div>
+          <div class="eyebrow">Para evaluar tu situación</div>
+          <h2>Documentación útil para la consulta</h2>
+          <p class="section-intro" style="margin-bottom:0">No hace falta que tengas todo ordenado antes de escribirnos. Esta lista sirve como guía para iniciar el análisis.</p>
+        </div>
+        <ul class="checklist">
+          <li>Indicación u orden médica vigente</li>
+          <li>Historia o resumen de los tratamientos anteriores</li>
+          <li>Solicitud presentada ante la obra social o prepaga</li>
+          <li>Negativa, respuesta o constancia de demora</li>
+          <li>Credencial y datos básicos de afiliación</li>
+        </ul>
       </div>
-      <div>
-        <a class="mainGrid__link" href="moratoria.html">
-          <h2>Moratorias</h2>
-          <div class="linkDescription__container">
-            <img src="./Images/moratorias.webp" />
-            <p>Toda persona que no cuente con los años de   aportes necesarios, sean trabajadores autónomos o empleados en relación de dependencia, podrán acceder a una jubilación o pensión por fallecimiento de un trabajador mediante la adhesión a una moratoria.</p>
-          </div>
-        </a>
+    </section>
+
+    <section id="preguntas">
+      <div class="container">
+        <div class="eyebrow">Preguntas frecuentes</div>
+        <h2>Lo principal, explicado sin vueltas</h2>
+        <p class="section-intro">Estas respuestas son orientativas y no reemplazan la evaluación jurídica del caso concreto.</p>
+        <div class="faq-list">
+          <details><summary>¿La cobertura puede limitarme a tres tratamientos durante toda la vida?</summary><p>El criterio jurisprudencial para tratamientos de alta complejidad ha reconocido un límite anual y no vitalicio. Para aplicarlo correctamente es necesario revisar cómo y cuándo se realizaron los tratamientos anteriores.</p></details>
+          <details><summary>¿Tengo que esperar una negativa formal para consultar?</summary><p>No. Si ya realizaste tratamientos anteriores y vas a solicitar uno nuevo, podés consultar para ordenar la documentación y conocer los pasos posibles. Para iniciar una acción judicial normalmente será relevante contar con una negativa, limitación o demora concreta.</p></details>
+          <details><summary>¿Se puede reclamar también la medicación?</summary><p>La cobertura se analiza de manera integral según la indicación médica y las circunstancias del caso. Esto puede incluir la medicación y otras prestaciones vinculadas con el tratamiento principal.</p></details>
+          <details><summary>¿La atención es presencial?</summary><p>La atención es principalmente virtual. También se realizan reuniones presenciales en CABA, únicamente con cita previa.</p></details>
+        </div>
       </div>
-      <div>
-        <a class="mainGrid__link" href="PUAM.html"><h2>PUAM</h2>
-          <div class="linkDescription__container">
-            <img src="./Images/puam.jpg" />
-            <p>En caso de que tengas 65 años de edad y no puedas jubilarte por falta de aportes, gestionamos la Pensión Universal al Adulto Mayor. Este beneficio es equivalente al 80% de una jubilación mínima y se actualiza por la Ley de Movilidad.</p>
-          </div>
-        </a>
-      </div>
-      <div>
-        <a class="mainGrid__link" href="sucesiones.html">
-          <h2>Sucesiones</h2>
-          <div class="linkDescription__container">
-            <img src="./Images/sucesiones.jpg" />
-            <p>Te brindamos el respaldo y la orientación adecuada para gestionar los aspectos legales que conlleva una sucesión. En nuestro estudio jurídico, entendemos la complejidad y la sensibilidad que rodea este proceso, con años de experiencia y un equipo comprometido, estamos aquí para brindarle la asesoría que necesitas para afrontar este camino con confianza y tranquilidad.</p>
-          </div>
-        </a>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container contact-box">
+        <div>
+          <div class="eyebrow" style="color:#e9826b">Fertilidad con Derecho</div>
+          <h2>Contanos qué respuesta recibiste</h2>
+          <p>Podés enviarnos un mensaje con la indicación médica, cuántos tratamientos realizaste y qué informó tu obra social o prepaga.</p>
+          <a class="button" href="https://wa.me/5491132140614?text=Hola%2C%20quiero%20consultar%20por%20la%20cobertura%20de%20un%20tratamiento%20de%20fertilidad" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+        <div class="contact-meta">
+          <div><strong>Teléfono</strong><br>011 3214-0614</div>
+          <div><strong>Ubicación</strong><br>Av. Santa Fe 1845, CABA</div>
+          <div><strong>Modalidad</strong><br>Virtual y presencial con cita previa</div>
+        </div>
       </div>
     </section>
   </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>© 2026 Fertilidad con Derecho. Servicio de asesoramiento jurídico.</div>
+      <div class="socials"><a href="https://www.instagram.com/fertilidadconderecho/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/fertilidadconderecho" target="_blank" rel="noopener">Facebook</a></div>
+    </div>
+  </footer>
+
+  <a class="button whatsapp-float" href="https://wa.me/5491132140614?text=Hola%2C%20quiero%20consultar%20por%20la%20cobertura%20de%20un%20tratamiento%20de%20fertilidad" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">Consultar por WhatsApp</a>
 </body>
 </html>
